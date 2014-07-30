@@ -13,6 +13,7 @@
     "lint": "node node_modules/jshint/bin/jshint ."
   },
   "dependencies": {
-    "md5-part-file": "^1.0.0"
+    "md5-part-file": "^1.0.2",
+    "request": "^2.39.0"
   }
 }
