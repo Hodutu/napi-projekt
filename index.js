@@ -37,8 +37,8 @@ var np = function(file, cb) {
 //                \         \*=~-'
 //                 \         '=====----
 //                  \
-// Thanks to Wojciech Ziniewicz (https://github.com/wzin) for helping me
-// understand original python code in this part
+// Thanks to Wojciech Ziniewicz (https://github.com/wzin) for helping me in
+// understanding original python code in this part
 var magic = function(hash){
   var idx = [ 0xe, 0x3, 0x6, 0x8, 0x2 ];
   var mul = [ 2, 2, 5, 4, 3 ];
