@@ -11,5 +11,8 @@
   "scripts": {
     "test": "node tests/napi-projekt-tests.js",
     "lint": "node node_modules/jshint/bin/jshint ."
+  },
+  "dependencies": {
+    "md5-part-file": "^1.0.0"
   }
 }
