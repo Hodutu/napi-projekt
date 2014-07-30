@@ -1,18 +1,25 @@
 'use strict';
 var md5pf = require('md5-part-file');
-var request = require('request');
+//var request = require('request');
+var http = require('http');
+var fs = require('fs');
 
 var language = 'PL';
 var np = function(file, cb) {
   md5pf(file, 0, 10485760, function(err, hash){
+    var file = fs.createWriteStream('_TEMP');
     var url = 'http://napiprojekt.pl/unit_napisy/dl.php?l=' +
               language.toUpperCase() +
               '&f='+hash +
               '&t='+magic(hash)+
               '&v=other&kolejka=false&nick=&pass=&napios=Linux';
-    console.log(hash, magic(hash));
-    request(url, function(err, resp, body){
-      cb(err, body);
+    http.get(url, function(resp){
+      resp.pipe(file);
+      file.on('finish', function(){
+        file.close(function(){
+          cb(null, 'file saved');
+        });
+      });
     });
   });
 };
